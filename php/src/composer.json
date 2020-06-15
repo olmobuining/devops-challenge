@@ -1,0 +1,22 @@
+{
+    "name": "olmo/vanillaforms",
+    "description": "Challenge for Vanilla Forms",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Olmo Buining",
+            "email": "olmobuining@gmail.com"
+        }
+    ],
+    "require": {
+        "aws/aws-sdk-php": "^3.141"
+    },
+    "autoload": {
+        "psr-4": {
+            "Services\\": "Services"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}

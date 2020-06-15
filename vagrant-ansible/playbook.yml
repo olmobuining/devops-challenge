@@ -1,0 +1,16 @@
+# - hosts: all
+#   remote_user: root
+#   become: true
+---
+- name: Web01
+  hosts: all
+  become: yes
+  gather_facts: False
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: False
+    - setup: # aka gather_facts
+  roles:
+    - nginx
+    - haproxy

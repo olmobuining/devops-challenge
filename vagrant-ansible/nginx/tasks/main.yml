@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: ensure nginx is at the latest version
+  apt:
+    name: nginx
+    state: latest
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+- name: Ansible copy html directory to the remote server
+  copy:
+    src: files/html
+    dest: /var/www
+- name: Update nginx sites-enabled default
+  template:
+    src: templates/default
+    dest: /etc/nginx/sites-enabled/default
+    backup: yes

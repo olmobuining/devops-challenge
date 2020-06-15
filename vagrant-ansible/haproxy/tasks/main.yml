@@ -1,0 +1,17 @@
+---
+# tasks file for haprox
+
+- name: "Installing HAproxy"
+  apt:
+    name: haproxy
+    state: latest
+- name: Enabling and starting HAproxy service
+  service:
+    name: haproxy
+    state: started
+    enabled: true
+- name: Update HAProxy config
+  template:
+    src: templates/haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    backup: yes
